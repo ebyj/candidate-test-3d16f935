@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import generateCharacterKey from "./generateKey";
+import styles from "./CharacterList.module.scss";
+import { capitalize } from "lodash";
 
 const CharacterPropType = PropTypes.shape({
   name: PropTypes.string.isRequired,
@@ -11,17 +13,19 @@ const CharacterPropType = PropTypes.shape({
 });
 
 const CharacterListItem = ({ character }) => (
-  <div>
-    <div>
-      <img
-        src={`characters/${character.avatar}`}
-        alt={character.name}
-        loading={"lazy"}
-      />
-    </div>
-    <div>
-      <h3 className="character-list-item-name">{character.name}</h3>
-      <p className="character-list-item-description">{character.description}</p>
+  <div className={styles.characterListItem}>
+    <img
+      className={styles.avatar}
+      style={{ position: "relative" }}
+      src={`characters/${character.avatar}`}
+      alt={character.name}
+    />
+    <div className={styles.characterInfo}>
+      <div className={styles.characterName}>{character.name}</div>
+      <div className={styles.characterCategory}>
+        {capitalize(character.category)}
+      </div>
+      <div className={styles.description}>{character.description}</div>
     </div>
   </div>
 );
@@ -30,7 +34,7 @@ CharacterListItem.propTypes = { character: CharacterPropType };
 
 const CharacterList = ({ characters }) => {
   return (
-    <div>
+    <div className={styles.characterList}>
       {characters.map((character, i) => (
         <CharacterListItem
           key={generateCharacterKey(i, character.name)}

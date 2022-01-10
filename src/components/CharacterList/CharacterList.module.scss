@@ -1,0 +1,45 @@
+.characterList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0;
+  list-style: none;
+}
+
+.characterListItem {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin: 10px;
+  background: #fff;
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+  }
+
+  .characterInfo {
+    text-align: left;
+    margin-left: 20px;
+  }
+
+  .characterName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-bottom: 0.7rem;
+  }
+
+  .characterCategory {
+    font-size: 0.9rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
