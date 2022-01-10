@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../logo.svg";
 import styles from "./App.module.scss";
-
-// Character list is available in the public directory
+import CharacterList from "./CharacterList/CharacterList";
 
 export default function App() {
+  const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    const getCharacterList = async () => {
+      const response = await fetch("http://localhost:3000/characters.json");
+      return await response.json();
+    };
+
+    getCharacterList().then((data) => {
+      setCharacters(data);
+    });
+  }, []);
+
   return (
     <div className={styles.App}>
       <header className={styles["App-header"]}>
@@ -13,7 +25,7 @@ export default function App() {
       </header>
 
       <section className="App-content">
-        {/* Lovely character list goes here */}
+        <CharacterList characters={characters} />
       </section>
     </div>
   );
