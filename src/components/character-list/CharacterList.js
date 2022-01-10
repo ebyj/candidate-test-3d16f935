@@ -16,7 +16,6 @@ const CharacterListItem = ({ character }) => (
   <div className={styles.characterListItem}>
     <img
       className={styles.avatar}
-      style={{ position: "relative" }}
       src={`characters/${character.avatar}`}
       alt={character.name}
     />
