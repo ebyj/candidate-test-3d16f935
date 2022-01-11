@@ -130,4 +130,28 @@ describe("characterList", () => {
       "alphabetical"
     );
   });
+
+  it("only calls getCharacterCategories when characters updates", () => {
+    const { rerender } = render(<CharacterList characters={characters} />);
+
+    expect(getCharacterCategories).toHaveBeenCalledTimes(1);
+
+    // manual rerender
+    rerender(<CharacterList characters={characters} />);
+
+    expect(getCharacterCategories).toHaveBeenCalledTimes(1);
+
+    // trigger some kind of rerender by updating sort state
+    const dropdown = screen.getByTestId("character-order-by");
+
+    act(() => {
+      fireEvent.change(dropdown, { target: { value: "alphabetical" } });
+    });
+
+    expect(getCharacterCategories).toHaveBeenCalledTimes(1);
+
+    // new array ref should cause getCharacterCategories to be called again
+    rerender(<CharacterList characters={[...characters]} />);
+    expect(getCharacterCategories).toHaveBeenCalledTimes(2);
+  });
 });
