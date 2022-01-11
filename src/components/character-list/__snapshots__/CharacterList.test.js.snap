@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`characterList renders characters 1`] = `
+<div
+  class="characterListItem"
+>
+  <img
+    alt="Frodo Baggins"
+    class="avatar"
+    src="characters/frodo_baggins.jpg"
+  />
+  <div
+    class="characterInfo"
+  >
+    <div
+      class="characterName"
+    >
+      Frodo Baggins
+    </div>
+    <div
+      class="characterCategory"
+    >
+      Hobbit
+    </div>
+    <div
+      class="description"
+    >
+      A young well-to-do hobbit. When he discovers that the magic ring left to him by his eccentric Uncle Bilbo is the One Ring, he reluctantly takes on the quest to destroy it. Often referred to as the Ringbearer.
+    </div>
+  </div>
+</div>
+`;

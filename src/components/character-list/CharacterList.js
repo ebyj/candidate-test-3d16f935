@@ -57,13 +57,14 @@ const CharacterList = ({ characters }) => {
   );
 
   return (
-    <div>
-      <div className={styles.controls}>
+    <>
+      <div className={styles.controls} data-testid="character-controls">
         <div>
           <label htmlFor="character-category-select">Category</label>
           <select
             onChange={onCategoryFilterChange}
             id="character-category-select"
+            data-testid="character-category-select"
             value={categoryFilter}
           >
             {categories.map((category) => (
@@ -78,6 +79,7 @@ const CharacterList = ({ characters }) => {
           <select
             onChange={onOrderAlphabeticallyChange}
             id="character-order-by"
+            data-testid="character-order-by"
             value={order}
           >
             <option value="significanceIndex">Significance</option>
@@ -85,7 +87,7 @@ const CharacterList = ({ characters }) => {
           </select>
         </div>
       </div>
-      <div className={styles.characterList}>
+      <div className={styles.characterList} data-testid="character-list">
         {sortedFilteredCharacters.map((character, i) => (
           <CharacterListItem
             key={generateCharacterKey(i, character.name)}
@@ -93,7 +95,7 @@ const CharacterList = ({ characters }) => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
