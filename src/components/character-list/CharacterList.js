@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import generateCharacterKey from "./generateKey";
 import styles from "./CharacterList.module.scss";
 import { capitalize } from "lodash";
-import useSorterFilter from "./useSorterFilter";
+import useCharacterSorterFilter from "./useCharacterSorterFilter";
 import getCharacterCategories from "./getCharacterCategories";
 
 const CharacterPropType = PropTypes.shape({
@@ -34,10 +34,10 @@ const CharacterListItem = ({ character }) => (
 CharacterListItem.propTypes = { character: CharacterPropType };
 
 const CharacterList = ({ characters }) => {
-  const [categoryFilter, setCategoryFilter] = useState();
+  const [categoryFilter, setCategoryFilter] = useState("");
   const [order, setOrder] = useState("significanceIndex");
 
-  const sortedFilteredCharacters = useSorterFilter(
+  const sortedFilteredCharacters = useCharacterSorterFilter(
     characters,
     categoryFilter,
     order

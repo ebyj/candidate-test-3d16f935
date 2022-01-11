@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useSorterFilter = (characters, categoryFilter, order) => {
+const useCharacterSorterFilter = (characters, categoryFilter, order) => {
   const [updatedCharacters, setUpdatedCharacters] = useState(characters);
 
   useEffect(() => {
@@ -11,6 +11,10 @@ const useSorterFilter = (characters, categoryFilter, order) => {
 
     if (order === "alphabetical") {
       updatedCharacters.sort((a, b) => a.name.localeCompare(b.name));
+    } else {
+      updatedCharacters.sort(
+        (a, b) => a.significanceIndex - b.significanceIndex
+      );
     }
 
     setUpdatedCharacters(updatedCharacters);
@@ -19,4 +23,4 @@ const useSorterFilter = (characters, categoryFilter, order) => {
   return updatedCharacters;
 };
 
-export default useSorterFilter;
+export default useCharacterSorterFilter;
