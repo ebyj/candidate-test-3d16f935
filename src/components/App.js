@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../logo.svg";
 import styles from "./App.module.scss";
 import CharacterList from "./character-list/CharacterList";
-import { getCharacterList } from "./api";
+import getCharacterList from "./getCharacterList";
 
 export default function App() {
   const [characters, setCharacters] = useState([]);

@@ -1,17 +1,16 @@
 import React from "react";
 import App from "./App";
-import { getCharacterList } from "./api";
+import getCharacterList from "./getCharacterList";
 import { render, waitFor } from "@testing-library/react";
-import characterList from "./character-list/CharacterList";
 import CharacterList from "./character-list/CharacterList";
 
-jest.mock("./api");
+jest.mock("./getCharacterList");
 jest.mock("./character-list/CharacterList");
 
 describe("App", () => {
   beforeEach(() => {
     getCharacterList.mockResolvedValue(["character1", "character2"]);
-    characterList.mockReturnValue(<div>Character List</div>);
+    CharacterList.mockReturnValue(<div>Character List</div>);
   });
 
   it("calls getCharacterList on mount", async () => {
