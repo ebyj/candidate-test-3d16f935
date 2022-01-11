@@ -2,7 +2,7 @@ import React from "react";
 import App from "./App";
 import getCharacterList from "./getCharacterList";
 import { render, waitFor } from "@testing-library/react";
-import CharacterList from "./character-list/CharacterList";
+import CharacterList from "./character-list";
 
 jest.mock("./getCharacterList");
 jest.mock("./character-list/CharacterList");

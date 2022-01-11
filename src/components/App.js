@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "../logo.svg";
 import styles from "./App.module.scss";
-import CharacterList from "./character-list/CharacterList";
+import CharacterList from "./character-list";
 import getCharacterList from "./getCharacterList";
 
 export default function App() {
