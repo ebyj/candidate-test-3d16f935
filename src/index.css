@@ -1,3 +1,8 @@
+/* Prevents text from moving on page when vertical scroll bar is shown / hidden depending on content */
+html {
+  overflow-y: scroll;
+}
+
 body {
   background: #dedede;
   margin: 0;
