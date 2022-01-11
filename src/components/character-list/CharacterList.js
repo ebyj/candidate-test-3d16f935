@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import generateCharacterKey from "./generateKey";
 import styles from "./CharacterList.module.scss";
-import { capitalize } from "lodash";
+import capitalize from "lodash.capitalize";
 import useCharacterSorterFilter from "./useCharacterSorterFilter";
 import getCharacterCategories from "./getCharacterCategories";
 
