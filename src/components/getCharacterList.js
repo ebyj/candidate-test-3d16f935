@@ -1,5 +1,5 @@
 const getCharacterList = () =>
-  fetch("http://localhost:3000/characters.json")
+  fetch("characters.json")
     .then((res) => res.json())
     .catch(console.error);
 
